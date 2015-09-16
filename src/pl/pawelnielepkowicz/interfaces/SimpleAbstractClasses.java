@@ -5,52 +5,91 @@ package pl.pawelnielepkowicz.interfaces;
  */
 
 
-
-
 abstract class Car {
 
-    public abstract void getName(String carName);
+    public abstract void setName(String carName);
 
-    public abstract void improovePerformance();
+    public abstract void getName();
 
-    public abstract void setHorsePower(int baseHorsePower);
+    public abstract void improvePerformance(int extraHP);
+
+    public abstract void setHorsePower(int _horsePower);
 
 }
 
 class DriftCar extends Car {
 
-    static int horsePower;
+    int horsePower;
+    String carName;
 
-    public void setHorsePower(int baseHorsePower){
 
-        horsePower = baseHorsePower;
-        System.out.println(horsePower);
+    public void setName(String _carName) {
 
-    }
-
-    public void getHorsePower(){
-
-        System.out.println(horsePower);
+carName = _carName;
 
     }
 
+    public void getName() {
 
-    public void getName(String NissanGTR){
-
-        System.out.println(NissanGTR);
+        System.out.println("carName: " + carName);
 
     }
 
 
+    public void setHorsePower(int _horsePower) {
 
-    public void improovePerformance() {
+        horsePower = _horsePower;
+        System.out.println("horsepower: " + horsePower);
 
+    }
+
+    public void getHorsePower() {
+
+        System.out.println("horsepower: " + horsePower);
+
+    }
+
+
+    public void improvePerformance(int extraHP) {
+
+        horsePower +=extraHP;
+        System.out.println("new horsepower: " + horsePower);
+
+
+    }
+
+    DriftCar(){
 
     }
 
 }
 
+class JapanDriftCar extends DriftCar{
+
+    String specialProperties;
+
+    public void setSpecialProperties(String _specialProperties){
+
+        specialProperties = _specialProperties;
+        System.out.println("specialProperties: " + specialProperties);
+
+    }
+
+}
+
+
+
+
 public class SimpleAbstractClasses {
+
+
+    SimpleAbstractClasses(){
+
+        DriftCar GTR = new DriftCar();
+        GTR.setHorsePower(1450);
+    }
+
+
 
 
 
